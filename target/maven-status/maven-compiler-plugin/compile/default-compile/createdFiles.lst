@@ -1,0 +1,9 @@
+model\Author.class
+controller\Controller.class
+view\Menu.class
+view\PrintMenu.class
+model\Book.class
+utils\UtilsIO.class
+view\MenuOptions.class
+app\Main.class
+dao\AuthorDAO.class

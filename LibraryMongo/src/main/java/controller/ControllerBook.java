@@ -14,6 +14,7 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.result.DeleteResult;
 
 import dao.AuthorDAO;
+import dao.BookDAO;
 import model.Author;
 import model.Book;
 import utils.UtilsIO;
@@ -101,8 +102,9 @@ public class ControllerBook {
 			String bookTitle = UtilsIO.askForTitle(reader);
 			int bookYear = UtilsIO.askForYear(reader);
 			int bookPages = UtilsIO.askForPages(reader);
+			char stateA = 'A';
 
-			books.add(new Book(bookTitle, bookYear, bookPages));
+			books.add(new Book(bookTitle, bookYear, bookPages, stateA));
 		}
 		return books;
 	}

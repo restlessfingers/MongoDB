@@ -2,8 +2,24 @@ package model;
 
 import java.util.List;
 
+import org.bson.Document;
+
+import dao.ClientDAO;
+
 public class Client extends Person{
-		char state;
+		public boolean isBlocked() {
+		return isBlocked;
+	}
+
+	public void setBlocked(boolean isBlocked) {
+		this.isBlocked = isBlocked;
+	}
+
+	public void setBooks(List<Book> books) {
+		this.books = books;
+	}
+
+		boolean isBlocked;
 		//los siguientes int deben ir a  book
 		/*private int dayBookOut;
 		private int dayBookIn;
@@ -48,6 +64,15 @@ public class Client extends Person{
 
 		public void setBook(List<Book> books) {
 			this.books = books;
+		}
+		
+		public static boolean isBlocked(Book book /*Document clientFound*/) {
+			//dayBookOut.compareTo(dayBookIn)
+			if ((book.getDayBookIn()).compareTo(book.getDayBookOut()) < 100) {
+				return false;
+				//set isBlocked no
+			} 
+		return true;//set isBlocked yes
 		}
 
 }

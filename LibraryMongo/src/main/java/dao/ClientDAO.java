@@ -19,8 +19,7 @@ import static com.mongodb.client.model.Filters.eq;
 public class ClientDAO {
 
 	private MongoDatabase database;
-	private Date dayBookIn;
-	private Date dayBookOut;
+	
 	private boolean isBlocked;
 
 	public void setDataSource(MongoDatabase database) {
@@ -184,15 +183,6 @@ public class ClientDAO {
 
 	}
 
-
-	public boolean isBlocked() {
-		//dayBookOut.compareTo(dayBookIn)
-		if ((this.dayBookOut).compareTo(dayBookIn) < 100) {
-			return false;
-		} 
-	return true;
-	}
-	
 }
 
 /*cuando el cliente coja los libros verificar si esta bloqueado. calcular fecha actual - valor del metodo isblocked?

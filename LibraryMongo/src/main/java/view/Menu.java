@@ -71,7 +71,9 @@ public class Menu {
 			else if (commandEnum.equals(MenuOptions.RENTBOOK)) {
 				ControllerClient.update(reader);
 			}
-
+			else if (commandEnum.equals(MenuOptions.RESERVEBOOK)) {
+				ControllerClient.update(reader);
+			}
 		}
 
 	}

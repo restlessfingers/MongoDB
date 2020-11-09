@@ -3,6 +3,8 @@ package model;
 import java.util.Date;
 import java.util.List;
 
+import services.BookState;
+
 public class Book {
 
 	private String title;
@@ -13,7 +15,8 @@ public class Book {
 	private Date dayBookIn;
 	char state;
 	
-	public char getState() {
+	
+	public char getState(BookState bookState) {
 		return state;
 	}
 
@@ -42,6 +45,14 @@ public class Book {
 		this.title = title;
 		this.year = year;
 		this.pages = pages;
+	}
+	
+	public Book(String title, int year, int pages, char letter) {
+		super();
+		this.title = title;
+		this.year = year;
+		this.pages = pages;
+		this.state = letter;
 	}
 
 	public Book(String title, List<Client> clients) {
@@ -90,4 +101,5 @@ public class Book {
 		this.clients = clients;
 	}
 	//public Date dayBookOut = new Date(2000, 11, 21); 
+
 }

@@ -12,7 +12,8 @@ public enum MenuOptions {
 	UNKNOWN(8, "unknown"),
 	ADDCLIENT(9, "add a cliente"),
 	RENTBOOK(10, "rent a book"),
-	RENTURNINGBOOK(10, "rent a book");
+	RENTURNINGBOOK(10, "rent a book"),
+	RESERVEBOOK(11, "rent a book");
 
 	private int optionInteger;
 	private String optionText;

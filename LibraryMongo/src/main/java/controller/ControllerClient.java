@@ -16,17 +16,21 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
 
+import dao.BookDAO;
 import dao.ClientDAO;
 //import model.Client;
 import model.Book;
 import model.Client;
+import services.BookState;
 import utils.UtilsIO;
 import view.MenuOptions;
 
 public class ControllerClient{
 
 	public static ClientDAO clientDAO;
-
+	public static Client client;
+	public static Book book;
+	
 	//just init and connect to mongoDB with creation of clientDAO object
 	//needed to carry database
 	public static MongoDatabase init() {
@@ -81,13 +85,16 @@ public class ControllerClient{
 		//check if client is in the mongoDB
 		Document clientFound = clientDAO.findOneDocument(clientName);
 		
+		boolean clientstate = client.isBlocked();
+		char bookState = book.getState(null);
+		
 		//ClientDAO checkClient = clientDAO.update(clientName, bookName);
 		
 		//if client is in DB, then, create a list with
 		//the books created from addBook -see ADDBOOK method-
-		boolean status = ClientDAO.isBlocked();
+		//boolean status = Client.isBlocked(clientFound);
 		
-		if ((clientFound != null)  && (status = false)) {
+		if ((clientFound != null)  && (clientstate = false) && (bookState = 'A') || (bookState = 'R')) {
 			List<Book> books = new ArrayList<Book>();
 			clientDAO.update(clientName, addBook(reader, books));
 		} else
@@ -197,12 +204,4 @@ public class ControllerClient{
 	public static void close(MongoDatabase database) {
 		// to-do close all connections
 	}
-	/*public boolean isBlocked(ClientDAO clientDAO) {
-		//dayBookOut.compareTo(dayBookIn)
-		if ((this.dayBookOut).compareTo(dayBookIn) < 100) {
-			return false;
-		} 
-	return true;
-	}*/
-
 }

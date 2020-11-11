@@ -16,7 +16,7 @@ public class Book {
 	char state;
 	
 	
-	public char getState(BookState bookState) {
+	public char getState(char bookState) {
 		return state;
 	}
 

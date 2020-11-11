@@ -30,6 +30,7 @@ public class ControllerClient{
 	public static ClientDAO clientDAO;
 	public static Client client;
 	public static Book book;
+	public static BookState bookState;
 	
 	//just init and connect to mongoDB with creation of clientDAO object
 	//needed to carry database
@@ -86,7 +87,7 @@ public class ControllerClient{
 		Document clientFound = clientDAO.findOneDocument(clientName);
 		
 		boolean clientstate = client.isBlocked();
-		char bookState = book.getState(null);
+		char bookState = book.getState(bookState);
 		
 		//ClientDAO checkClient = clientDAO.update(clientName, bookName);
 		
